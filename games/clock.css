@@ -1,0 +1,124 @@
+
+.clock-container{
+  position: relative;
+  background: rgba(0 , 0, 90, 0.7);
+  width: 16em;
+  height: 16em;
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 6px 6px rgba(0, 0, 0, 0.7),
+                    0 0.5em 1em -0.2em rgb(0,0,0,0.35);
+  transform: rotate3D(0.5, calc(-0.5 + var(--x, 0)),0, calc(var(--y)*1deg));
+}
+
+.clock-container::after{
+  position: absolute;
+  content: '';
+  top: 48%;
+  left:48%;
+  width: 4%;
+  height: 4%;
+  background: rgb(0,0,0);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.wrapper,
+.numbers{
+  position: absolute;
+  left: 4%;
+  width: 92%;
+  border-radius: 50%;
+}
+
+.wrapper{
+  top: 4%;
+  height: 92%;
+  background: rgba(250 , 250, 240, 0.9);
+  box-shadow: inset 0px 0px 31px rgba(0,0,0,0.6);
+}
+
+.numbers{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+
+.number,
+.mark{
+  position: absolute;
+  top: 42.5%;
+  width: 100%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform-origin: center;
+}
+
+.digit{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+
+.m0{
+  transform: rotateZ(90deg);
+}
+
+.m0 .digit{
+  transform: rotateZ(-90deg);
+}
+
+.m2,
+.m4 .digit{
+  transform: rotateZ(30deg);
+}
+
+.m1,
+.m5 .digit{
+  transform: rotateZ(60deg);
+}
+
+.m4,
+.m2 .digit{
+  transform: rotateZ(-30deg);
+}
+.m5,
+.m1 .digit{
+  transform: rotateZ(-60deg);
+}
+
+.mark_min{
+  font-size: 0.6rem;
+  font-weight: bolder;
+}
+
+
+.hours,
+.minutes,
+.seconds{
+  position: absolute;
+  top: 0;
+  width: 5%;
+  height: 50%; 
+  left: 47.5%;
+  background: #000;
+  transform-origin: bottom;
+}
+
+.hours{
+  clip-path: polygon(50% 50%, 70% 70%, 50% 100%, 30% 70%);
+  transform: rotateZ(calc(var(--hr)*1deg));
+}
+
+.minutes{
+  clip-path: polygon(50% 23%, 70% 50%, 50% 100%, 30% 50%);
+  transform: rotateZ(calc(var(--min)*1deg)); 
+}
+
+.seconds{
+  clip-path: polygon(50% 10%, 70% 30%, 50% 100%, 30% 30%);
+  transform: rotateZ(calc(var(--sec)*6deg));
+}

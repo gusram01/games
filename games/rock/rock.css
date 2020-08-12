@@ -1,0 +1,81 @@
+/**
+ * =================================
+ *               ROOT
+ * =================================
+ */
+
+ :root{
+  --bg1: #393939;
+  --bg1-transparent1: #393939e0;
+  --bg1-transparent2: #39393939;
+  --bg2: #1f4172;
+  --bg2-transparent: #1f4172aa;
+  --bg3:var(--font2);
+  --bg4: #acd5d6;
+  --font:#d2d2d2;
+  --font1:#ecb460;
+  --font2:#fcd9b8;
+  --font3:#aaf255;
+  --font4: #ecf1f1;
+  --error1: #d88291;
+  --error2: #febbbb;
+  --linkActive: #BB86FC;
+  --linkHover: #acd5d6;
+  /* --linkHover: #aaf255; */
+
+}
+
+*{ 
+  box-sizing: border-box 
+}
+
+
+/**
+ * =================================
+ *              GENERAL
+ * =================================
+ */
+
+.body{
+  /* background: var(--bg2);  */
+  background: var(--bg4); 
+  transform-style: preserve-3d;
+
+}
+.rock_paper{
+
+  --spyro: 0;
+
+  position: relative;
+  display: flex;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: 
+      conic-gradient(white 0 36deg ,red 36deg 108deg, yellow 108deg 180deg,
+                      green 180deg 252deg, blue 252deg 324deg, 
+                      white 324deg 360deg);
+  transition: transform 2000ms ease;
+  transform-style: preserve-3d;
+  transform:  rotateX(75deg) rotateZ(calc(var(--spyro)*1deg));
+}
+
+.hand{
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  width: 96%;
+  height: 10%;
+  top: 40%;
+  left: 2%;
+  font-size: 4rem;
+  color: var(--bg2);
+  transform: rotateX(90deg) rotateY(90deg) translateY(100%);
+  background: yellow;
+  transform-origin: bottom;
+  perspective: 1100px;
+}
+
+.far{
+  transform: rotateZ(90deg);
+}

@@ -1,0 +1,33 @@
+{
+  "name": "games",
+  "version": "1.0.0",
+  "description": "games landing page",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open"
+  },
+  "keywords": [
+    "typescript",
+    "games"
+  ],
+  "author": "Gus Ramírez",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/file-loader": "^4.2.0",
+    "@types/node": "^14.0.27",
+    "@types/webpack": "^4.41.21",
+    "@types/webpack-dev-server": "^3.11.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.6.0",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
