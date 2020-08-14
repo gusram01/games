@@ -9,6 +9,6 @@ import { setHands, init } from './ts/principal';
 const spanFooter = document.getElementById('leyend_footer') as HTMLElement;
 const actualdate = new Date().getFullYear();
 
-spanFooter.innerHTML = `Gus Ramírez, ${actualdate} <sup>&copy;</sup>`;
+spanFooter.textContent = `Gus Ramírez, ${actualdate} &copy;`;
 setHands();
 init();

@@ -31,7 +31,7 @@ npm start
 ```
 
 ### Usage
-Only two routes:
+Only three routes:
 
  - Home: "/games"
  - Rock, paper, scissors: "/games/rock"

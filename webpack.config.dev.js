@@ -17,14 +17,14 @@ function recursiveIssuer(m) {
 module.exports = {
   mode: 'development',
   entry: {
-    home: './games/index.ts',
+    home: './games/home/index.ts',
     rock: './games/rock/rock.ts'
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ],
   },
   output: {
-    filename: '[name]/bundle.[contentHash].js',
+    filename: '[name]/bundle.[hash].js',
     path: path.resolve(__dirname, 'public', 'games'),
     publicPath: '/games',
   },
@@ -70,13 +70,13 @@ module.exports = {
       ]
     }),
     new HtmlWebpackPlugin({
-      template: './games/rock/rock.html',
+      template: './games/rock.html',
       filename: './rock/index.html',
       excludeChunks: [
         'home'
       ]
     }),
-    new MiniCssExtractPlugin({ filename: '[name]/bundle.[contentHash].css' }),
+    new MiniCssExtractPlugin({ filename: '[name]/bundle.[hash].css' }),
   ],
   module: {
     rules: [
