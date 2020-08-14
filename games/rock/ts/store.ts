@@ -4,6 +4,8 @@ export const store = {
   data: {
     'win': 0,
     'lose': 0,
-    'tied': 0
+    'tied': 0,
+    'winner': '',
+    'lastmove': ''
   }
 }

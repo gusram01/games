@@ -1,4 +1,4 @@
-const root = document.documentElement;
+const clockHands = document.getElementById('clock-hands') as HTMLDivElement;
 const time = new Date();
 const mins = time.getMinutes();
 const secs = time.getSeconds();
@@ -35,10 +35,10 @@ export const styleMarks = (parent: HTMLElement, childrenClass: string) => {
 
 
 export const timer = () => {
-  root.style.setProperty('--sec', `${init}`);
-  root.style.setProperty('--min', `${init / 10}`);
-  root.style.setProperty('--hr', `${init / 120}`);
+  clockHands.style.setProperty('--sec', `${init}`);
+  clockHands.style.setProperty('--min', `${init / 10}`);
+  clockHands.style.setProperty('--hr', `${init / 120}`);
   init++;
-  setTimeout(timer, 1000);
+  window.setTimeout(timer, 1000);
 };
 
