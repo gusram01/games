@@ -1,5 +1,5 @@
-import './simon.css'
-import '../../assets/rock-img.png'
+import '../css/simon.css'
+import '../../../assets/rock-img.png'
 
 // https://www.myinstants.com/instant/street-fighter-ii-coin/?utm_source=copy&utm_medium=share
 // https://www.myinstants.com/instant/round-street-fight-80055/?utm_source=copy&utm_medium=share

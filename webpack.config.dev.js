@@ -17,8 +17,8 @@ function recursiveIssuer(m) {
 module.exports = {
   mode: 'development',
   entry: {
-    home: './games/home/index.ts',
-    rock: './games/rock/rock.ts'
+    home: './games/home/ts/index.ts',
+    rock: './games/rock/ts/rock.ts'
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ],
@@ -63,14 +63,14 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({
-      template: './games/index.html',
+      template: './games/home/index.html',
       filename: './index.html',
       excludeChunks: [
         'rock'
       ]
     }),
     new HtmlWebpackPlugin({
-      template: './games/rock.html',
+      template: './games/rock/rock.html',
       filename: './rock/index.html',
       excludeChunks: [
         'home'
@@ -97,6 +97,11 @@ module.exports = {
           'css-loader',
         ]
 
+      },
+
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
       },
 
       {

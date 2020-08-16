@@ -49,7 +49,7 @@
   align-items: center;
   justify-content: space-around;
   min-height: 100vh;
-  background: no-repeat fixed url('../../assets/space-invaders.jpg') ,var(--bg4); 
+  background: no-repeat fixed url('../../../assets/space-invaders.jpg') ,var(--bg4); 
   background-position: 30% 50%;
   background-size: cover;
 }

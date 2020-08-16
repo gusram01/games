@@ -1,6 +1,6 @@
-import './styles.css';
-import './clock.css';
-import '../../assets/home.jpg';
+import '../css/styles.css';
+import '../css/clock.css';
+import '../../../assets/home.jpg';
 import { insertMarks, styleMarks, timer } from './clock';
 
 const cover = document.getElementById('cover') as HTMLDivElement;
