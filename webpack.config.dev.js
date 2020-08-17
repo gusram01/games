@@ -100,8 +100,11 @@ module.exports = {
       },
 
       {
-        test: /\.html$/i,
+        test: /\.html$/,
         loader: 'html-loader',
+        options: {
+          minimize: false,
+        },
       },
 
       {
@@ -112,7 +115,7 @@ module.exports = {
             options: {
               name: '[name].[ext]',
               outputPath: '/assets/',
-              publicPath: '../../assets/',
+              publicPath: '/assets/',
               emitFile: true,
               esModule: false
             }

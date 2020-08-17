@@ -4,19 +4,75 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock, Paper, Scissors</title>
+    <title>Simon Says</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/cfe24ae6ca.js" crossorigin="anonymous"></script>
+
   </head>
 
-  <body class="body rock">
-    <div class="rock_paper" id="hand_container">
-      <div class="hand"><i class="far fa-hand-lizard"></i></div>
-      <div class="hand"><i class="far fa-hand-spock"></i></div>
-      <div class="hand"><i class="far fa-hand-scissors"></i></div>
-      <div class="hand"><i class="far fa-hand-paper"></i></div>
-      <div class="hand"><i class="far fa-hand-rock"></i></div>
+  <body class="body">
+    <div class="body_simon">
+
+      <header class="header">
+        <h1>
+          Simon Says
+        </h1>
+      </header>
+      <main class="main">
+
+        <section class="section board">
+          <button class="btn btn_play" id="lets_play">Lets Play !!</button>
+          <div class="button_container">
+            <button class="btn color blue" id="blue"></button>
+            <button class="btn color red" id="red"></button>
+            <button class="btn color green" id="green"></button>
+            <button class="btn color yellow" id="yellow"></button>
+            <button class="btn color white" id="white"></button>
+          </div>
+        </section>
+
+        <section class="section stats">
+        </section>
+
+      </main>
+
+      <nav class="nav">
+        <ul class="nav_container">
+          <li class="li_link">
+            <a href="/games" class="link">Games</a>
+          </li>
+          <li class="li_link">
+            <a href="/" class="link">Home</a>
+          </li>
+          <li class="li_link">
+            <a href="/#portfolio" class="link">Portfolio</a>
+          </li>
+          <li class="li_link">
+            <a href="/#about" class="link">Contact</a>
+          </li>
+        </ul>
+
+      </nav>
+
+      <footer class="footer">
+        <span id="leyend_footer"></span>
+        <p class="text social">
+          <a class="link" href="https://twitter.com/GusGusdev" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a class="link" href="https://github.com/gusram01" target="_blank"><i class="fab fa-github"></i></a>
+          <span class="text">Repo: <a href="https://github.com/gusram01/games/tree/master/games/simon" target="_blank">
+              Rock, Paper...
+              Game </a></span>
+        </p>
+        <p class="text">
+          Wallpaper from <a class="link" href="https://www.pexels.com/photo/mosaic-alien-on-wall-1670977/"
+            target="_blank">Pexels®</a>
+          by <a class="link" href="https://www.pexels.com/@francesco-ungaro" target="_blank">Francesco Ungaro</a>
+        </p>
+      </footer>
+
     </div>
-    <button class="play" id="play">Play</button>
   </body>
 
 </html>
