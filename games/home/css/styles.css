@@ -10,8 +10,13 @@
   --bg3: var(--font2);
   --bg3-emphasis: var(--font1);
   --bg5: #161825;
+  --font0:#000008;
   --font1:#ecb460;
   --font2:#fcd9b8;
+  
+  --bg-nav: #000;
+  --font-nav:#aaf255;
+
 }
 
 *{ 
@@ -26,6 +31,7 @@
  */
 
 .body{
+  position: relative;
   margin: 0;
   font-size: 15px;
   color: var(--font1);
@@ -34,8 +40,7 @@
   align-items: flex-start;
   justify-content: space-between;
   background: var(--bg5);
-  min-height: 100vh;
-  position: relative;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .header{
@@ -47,23 +52,53 @@
 }
 
 .main,
+.nav,
 .footer{
   display: flex;
-  justify-content: space-evenly;
   width: 100%;
 }
 
 .main{
   align-items: flex-start;
-  height: 55vh;
+  min-height: 70vh;
+  justify-content: space-evenly;
+
+}
+
+.nav{
+  margin: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 95%;
+  height: 60px;
+  background: var(--bg-nav);
+}
+
+.nav_container{
+  display: grid;
+  align-items: flex-start;
+  justify-content: center;
+  grid-template-columns: 
+    repeat(auto-fit, minmax(5.2rem, 1fr));
+  grid-auto-flow: column;
+  list-style: none;
+  text-align: center;
+  width: 96%;
+  margin: 0.5rem auto;
+  padding: 0;
+  overflow: hidden;
 }
 
 .footer{
-  min-height: 10vh;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
   text-align: center;
+  height: 200px;
+  padding: 60px 0;
+  background: var(--bg3);
+  color: var(--font0);
+  transition: background 200ms;
 }
-
 
 /**
  * =================================
@@ -105,6 +140,29 @@
 }
 
 
+.link,
+.link:link,
+.link:visited{
+  text-decoration: none;
+  padding: 5px;
+  color: var(--font1);
+  background: var(--bg1-transparent1);
+  box-shadow: 0 0 1px var(--shadow-l1);
+}
+
+.link_nav,
+.link_nav:link,
+.link_nav:visited{
+  color: var(--font-nav);
+}
+
+.link_footer-login,
+.link_footer-login:link,
+.link_footer-login:visited{
+  background: transparent;
+  color: var(--bg1);
+}
+
 /**
  * =================================
  *               CLOCK
@@ -122,5 +180,5 @@
   color: #000;
   mix-blend-mode: screen;
   transform-style: preserve-3d;
-  padding-bottom: 8vh;
+  padding-bottom: 50vh;
 }

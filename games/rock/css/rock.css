@@ -101,12 +101,15 @@
 
 .rock-paper_pc{
   --spyro: 0;
+  --transZ: 250;
+
   position: relative;
   width: 300px;
   height: 110px;
   transition: transform 800ms;
   transform-style: preserve-3d;
   transform: rotateY(calc(var(--spyro)*1deg));
+  transform-origin: center;
 }
 
 .hand_pc{
@@ -327,6 +330,7 @@
     font-size: 30px;
   }
   .rock-paper_pc{
+    --transZ: 450;
     width: 400px;
     height: 200px;
   }
@@ -357,6 +361,7 @@
     height: 6rem;
   }
   .rock-paper_pc{
+    --transZ: 650;
     width: 600px;
     height: 300px;
   }
@@ -400,5 +405,10 @@
     width: 1366px;
     margin: 0 auto;
 
+  }
+  .rock-paper_pc{
+    --transZ: 900;
+    width: 600px;
+    height: 300px;
   }
 }

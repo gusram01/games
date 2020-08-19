@@ -9,9 +9,11 @@ const spanFooter = document.getElementById('leyend_footer') as HTMLSpanElement;
 const actualYear = new Date().getFullYear();
 
 spanFooter.innerHTML = `Gus Ramírez, ${actualYear} <sup>&copy;</sup>`;
+spanFooter.style.fontWeight = '600';
+
 insertMarks(cover);
 styleMarks(cover, '.mark');
-(timer)();
+timer();
 
 window.addEventListener('mousemove', (e: MouseEvent) => {
   const clockContainer = document.querySelector('.clock-container') as HTMLDivElement;

@@ -4,7 +4,7 @@
  * =================================
  */
 
- :root{
+:root{
   --bg1: #393939;
   --bg1-transparent1: #393939e0;
   --bg1-transparent2: #39393939;
@@ -54,6 +54,7 @@
 }
 
 .main{
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
@@ -86,20 +87,39 @@
 
 .body_simon{
   overflow: hidden;
-  background: no-repeat fixed url("../../../assets/scrabble-web.jpg"), #000;
-  background-position: 50% 30%;
-  background-size: 100%;
+  background: no-repeat fixed url("../../../assets/scrabble-web.jpg"), var(--bg2);
+  background-position: center;
+  background-size: 60%;
 }
 
 .board{
-  display: flex;
-  width: 100%;
-  
+
+  min-height: 60vh;
+  justify-content: space-evenly;
+
 }
+
+.stats{
+  width: 100%;
+  min-height: 45vh;
+  background: var(--bg4);
+}
+
+.wrapper_board{
+  position: relative;
+  display: flex;
+  width: 250px;
+  height: 250px;
+}
+
 .button_container{
+  position: absolute;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .color{
@@ -107,8 +127,6 @@
   width: 100%;
   height: 150px;
 }
-
-
 
 .nav_container{
   display: grid;
@@ -136,6 +154,7 @@
   min-width: 40px;
   min-height: 40px;
   outline: none;
+  cursor: pointer;
   color: var(--font1);
   background: var(--bg3-t1);
 }
@@ -143,8 +162,9 @@
 .btn:hover,
 .btn:active,
 .btn:focus{
-  opacity: 0.4;
-  cursor: pointer;
+  opacity: 1;
+  box-shadow: inset 0 0 12px 8px #00000050;
+
 }
 
 .blue,
@@ -152,26 +172,43 @@
 .green,
 .yellow,
 .white{
-  opacity: 0.8;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  opacity: 1;
   transition: background, opacity 250ms ease;
 }
 
 .blue{
+  top: 0;
+  left: 0;
   background: blue;
 }
 .red{
+  top: 0;
+  right: 0;
   background: red;
 }
+
 .green{
+  bottom: 0;
+  right: 0;
   background: green;
 }
 .yellow{
+  bottom: 0;
+  left: 0;
   background: yellow;
 }
 .white{
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 50%;
   background: white;
 }
-
 
 .blue.after,
 .red.after,
@@ -179,7 +216,22 @@
 .yellow.after,
 .white.after{
   background: black;
-  opacity: 1;
+  opacity: 0.8;
+}
+
+.btn_play{
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 35%;
+  top: -35%;
+  left: 0;
+  z-index: 200;
+  align-items: center;
+  justify-content: space-evenly;
+  background: var(--bg2);
+  color: var(--font3);
+  font-size: 1.5rem;
 }
 
 

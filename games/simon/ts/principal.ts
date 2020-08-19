@@ -1,6 +1,6 @@
 import { Choice, choice, Color } from "./choice";
 
-
+const letsPlay = document.getElementById('lets_play') as HTMLButtonElement;
 const buttons = document.querySelector('.button_container') as HTMLDivElement;
 let arrayPC: Choice[] = [];
 let arrayPlayer: Choice[];
@@ -12,8 +12,7 @@ const finish = () => {
   arrayPC = [];
   buttons.removeEventListener('click', playerTurn);
   init();
-  console.log('Play Again ??!');
-
+  letsPlay.textContent = 'Play Again ??!';
 }
 
 const compareSelections = () => {
@@ -40,8 +39,9 @@ const playerTurn = (e: Event) => {
 
 const callPlayer = () => {
   console.log('array PC: ', arrayPC);
+  letsPlay.textContent = 'Your turn';
   buttons.addEventListener('click', playerTurn);
-  window.setTimeout(compareSelections, 2000 + (arrayPC.length * 600));
+  window.setTimeout(compareSelections, 1000 + (arrayPC.length * 600));
 }
 
 const setChoice = () => {
@@ -53,6 +53,7 @@ const setChoice = () => {
 const animateButton = (): any => {
   const animateColor = arrayPC[counter].name;
   const btn = document.getElementById(`${animateColor}`) as HTMLButtonElement;
+  letsPlay.textContent = 'PC turn';
 
   if (counter === 0) {
     btn.classList.toggle('after');
@@ -71,8 +72,10 @@ const animateButton = (): any => {
 
 const play = () => {
   arrayPlayer = [];
-  setChoice();
-  animateButton();
+  window.setTimeout(() => {
+    setChoice();
+    animateButton();
+  }, 200);
 }
 
 
@@ -83,8 +86,6 @@ const play = () => {
  */
 
 export const init = () => {
-  const letsPlay = document.getElementById('lets_play') as HTMLButtonElement;
-
   letsPlay.textContent = "Let's Play";
   letsPlay.addEventListener('click', play, { once: true });
 }

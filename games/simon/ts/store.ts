@@ -1,2 +1,8 @@
 
-export const store: any = [];
+export const store = {
+
+  user: '',
+  level: '',
+  date: '',
+
+};
