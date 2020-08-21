@@ -5,15 +5,12 @@
  */
 
 :root{
-  --bg1: #393939;
-  --bg1-transparent1: #393939e0;
-  --bg1-transparent2: #39393939;
+  --bg1: #000;
   --bg2: #1f4172;
-  --bg2-transparent: #1f4172aa;
-  --bg3:var(--font2);
+  --bg3:#fff;
   --bg4: #acd5d6;
-  --font:#d2d2d2;
-  --font1:#ecb460;
+  --font:#000020;
+  --font1:#d2d2d2;
   --font2:#fcd9b8;
   --font3:#aaf255;
   --font4: #ecf1f1;
@@ -40,12 +37,10 @@
   margin: 0;
   padding: 0;
   font-size: 16px;
-  background: var(--bg2);
+  background: var(--bg1);
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
-
-.main,
 .section,
 .footer,
 .nav{
@@ -55,7 +50,8 @@
 
 .main{
   position: relative;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   align-items: center;
   justify-content: space-around;
   min-height: 90vh;
@@ -86,17 +82,16 @@
 
 
 .body_simon{
-  overflow: hidden;
-  background: no-repeat fixed url("../../../assets/scrabble-web.jpg"), var(--bg2);
-  background-position: center;
-  background-size: 60%;
+  max-width: 1368px;
+  background: no-repeat fixed 
+    url("../../../assets/checkers.jpg"), var(--bg1);
+  background-position: 50% 30%;
+  background-size: 100%;
 }
 
 .board{
-
   min-height: 60vh;
   justify-content: space-evenly;
-
 }
 
 .stats{
@@ -122,11 +117,6 @@
   left: 0;
 }
 
-.color{
-  display: flex;
-  width: 100%;
-  height: 150px;
-}
 
 .nav_container{
   display: grid;
@@ -164,7 +154,6 @@
 .btn:focus{
   opacity: 1;
   box-shadow: inset 0 0 12px 8px #00000050;
-
 }
 
 .blue,
@@ -179,28 +168,27 @@
   transition: background, opacity 250ms ease;
 }
 
-.blue{
+.button_container button:nth-child(1){
   top: 0;
   left: 0;
   background: blue;
 }
-.red{
+.button_container button:nth-child(2){
   top: 0;
   right: 0;
   background: red;
 }
-
-.green{
+.button_container button:nth-child(3){
   bottom: 0;
   right: 0;
   background: green;
 }
-.yellow{
+.button_container button:nth-child(4){
   bottom: 0;
   left: 0;
   background: yellow;
 }
-.white{
+.button_container button:nth-child(5){
   top: 0;
   left: 0;
   bottom: 0;
@@ -210,13 +198,13 @@
   background: white;
 }
 
-.blue.after,
-.red.after,
-.green.after,
-.yellow.after,
-.white.after{
+.button_container button:nth-child(1).after,
+.button_container button:nth-child(2).after,
+.button_container button:nth-child(3).after,
+.button_container button:nth-child(4).after,
+.button_container button:nth-child(5).after{
   background: black;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .btn_play{
@@ -235,12 +223,6 @@
 }
 
 
-.social{
-  display: flex;
-  width: 80%;
-  justify-content: space-evenly;
-}
-
 .li_link{
   display: flex;
   justify-content: space-evenly;
@@ -248,17 +230,74 @@
   text-align: center;
 }
 
-.link{
-  display: flex;
-  color: var(--bg2);
+.link,
+.link:link,
+.link:visited,
+.modal_close{
   text-decoration: none;
-  justify-content: center;
+  padding: 5px;
+  color: var(--font1);
+}
+
+.link,
+.link:link,
+.link:visited{
+  position: relative;
+}
+
+.link_nav,
+.link_nav:link,
+.link_nav:visited{
+  color: var(--font-nav);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.link_footer-login,
+.link_footer-login:link,
+.link_footer-login:visited{
+  background: transparent;
+  color: var(--bg1);
 }
 
 .link:hover,
-.link:active,
-.link:focus{
-  background: #000a;
-  color: #fff;
+.btn:hover,
+.modal_close:hover{
+  color: var(--linkActive); 
+  font-weight: bold; 
 }
 
+.link::after,
+.btn::after,
+.link::after{
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 4px;
+  left: 0;
+  bottom: -2px;
+  background: var(--font-nav);
+  transform: scaleX(0);
+  transition: transform 200ms;
+}
+
+.link_nav:hover,
+.link_nav:focus{
+  color: var(--font-nav); 
+}
+
+.link_nav:hover::after,
+.link_nav:focus::after{
+  transform: scaleX(1);
+}
+
+.link:focus,
+.btn:focus{
+  outline: none;
+}
+
+.link:active,
+.btn:active,
+.modal_close:active{
+  color: var(--font-nav);
+}

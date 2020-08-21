@@ -1,6 +1,6 @@
 import '../css/simon.css';
 import '../simon.html';
-import '../../../assets/scrabble-web.jpg';
+import '../../../assets/checkers.jpg';
 import { init } from './principal';
 
 const spanFooter = document.getElementById('leyend_footer') as HTMLElement;

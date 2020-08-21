@@ -128,6 +128,27 @@
   perspective: 1000px;
 }
 
+.spock{
+  transform: rotateY(72deg) translateZ(250px);
+}
+
+.lizard{
+  transform: rotateY(144deg) translateZ(250px);
+}
+
+.rock{
+  transform: rotateY(216deg) translateZ(250px);
+}
+
+.paper{
+  transform: rotateY(288deg) translateZ(250px);
+}
+
+.scissors{
+  transform: rotateY(360deg) translateZ(250px);
+}
+
+
 .dashboard{
   align-items: center;
   justify-content: space-evenly;
@@ -324,91 +345,3 @@
 }
 
 
-
-@media (min-width: 767px) { 
-  .body{
-    font-size: 30px;
-  }
-  .rock-paper_pc{
-    --transZ: 450;
-    width: 400px;
-    height: 200px;
-  }
-  .hand_pc{
-    font-size: 6rem;
-  }
-  .stats{
-    min-height: 14rem;
-  }
-  .welcome,
-  .title_table{
-    font-size: 2.1rem;
-    font-weight: 700;
-  }
-
-}
-
-
-@media (min-width: 1023px) { 
-  .body{
-    font-size: 45px;
-  }
-  .footer{
-    height: 8rem;
-    padding: 3rem 0 15rem 0;
-  }
-  .nav{
-    height: 6rem;
-  }
-  .rock-paper_pc{
-    --transZ: 650;
-    width: 600px;
-    height: 300px;
-  }
-  .hand_pc{
-    font-size: 8rem;
-  }
-  .stats{
-    min-height: 23rem;
-  }
-  .welcome,
-  .title_table{
-    font-size: 3rem;
-    font-weight: 800;
-  }
-  .text{
-    font-size: 2rem;
-    font-weight: 400;
-  }
-  .inner_text{
-    font-size: 2.6rem;
-    font-weight: 600;
-  }
-  .wrapper_lets-play{
-    width: 14rem;
-    height: 14rem;
-  }
-  .btn_play{
-    font-size: 3rem;
-    font-weight: 700;
-  }
-  .iplayer{
-    font-size: 8rem;
-    font-weight: 500;
-  }
-}
-
-@media (min-width: 1366px) { 
-  .main,
-  .nav,
-  .footer{
-    width: 1366px;
-    margin: 0 auto;
-
-  }
-  .rock-paper_pc{
-    --transZ: 900;
-    width: 600px;
-    height: 300px;
-  }
-}
