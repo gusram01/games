@@ -10,7 +10,7 @@ let counter = 0;
 const finish = () => {
   buttons.removeEventListener('click', playerTurn);
   store.level = (arrayPC.length - 1).toString();
-  console.log(`Level ${arrayPC.length - 1}`);
+  console.log(store);
   arrayPlayer = [];
   arrayPC = [];
   letsPlay.textContent = 'Play Again ??!';
@@ -34,12 +34,17 @@ const playerTurn = (e: Event) => {
   const playerSelect = choice.find(ele => ele.name === colorSelect) as Choice;
 
   const actualPosition = arrayPlayer.unshift(playerSelect.id);
+  store.acumulator += 3;
+
+  // refresh stats  --> in this place  <--
+
   compareSelections(actualPosition);
 }
 
 const callPlayer = () => {
-  letsPlay.textContent = 'Your turn';
   buttons.addEventListener('click', playerTurn, { once: true });
+  letsPlay.textContent = 'Your turn';
+
 }
 
 const setChoice = () => {
@@ -52,7 +57,7 @@ const animateButton = (): any => {
   const animateColor = choice.find(ele => ele.id === +arrayPC[counter]);
   const btn = document.getElementById(`${animateColor?.name}`) as HTMLButtonElement;
 
-  letsPlay.textContent = 'PC turn';
+  letsPlay.textContent = `Level ${arrayPC.length - 1}`;
   btn.classList.toggle('after');
   window.setTimeout(() => { btn.classList.toggle('after') }, 300);
 
@@ -65,6 +70,7 @@ const animateButton = (): any => {
 
 const play = () => {
   arrayPlayer = [];
+  buttons.style.transform = `rotateZ(${arrayPC.length * 72}deg)`;
   window.setTimeout(() => {
     setChoice();
     animateButton();
@@ -79,6 +85,8 @@ const play = () => {
  */
 
 export const init = () => {
+  store.date = Date.now().toString();
+  store.acumulator = 0;
   letsPlay.textContent = "Let's Play";
   letsPlay.addEventListener('click', play, { once: true });
 }
