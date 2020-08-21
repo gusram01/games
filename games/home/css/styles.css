@@ -44,6 +44,9 @@
   position: relative;
   max-width: 1368px;
   margin: 0 auto;
+  background: no-repeat fixed url('../../../assets/home.jpg');
+  background-position: 50% 30%;
+  background-size: 100%;
 }
 
 .header{

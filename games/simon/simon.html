@@ -16,9 +16,53 @@
     <div class="body_simon">
 
       <header class="header">
+        <button class="btn_history">Show Stats</button>
         <h1>
           Simon Says
         </h1>
+        <div class="change_nick">
+          <form class="form_nick">
+            <div class="form_item">
+              <label for="nick">Username</label>
+              <input type="text nick" id="nick">
+            </div>
+            <div class="form_item">
+              <button class="btn form_btn">Change username</button>
+            </div>
+          </form>
+          <table class="history">
+            <thead class="thead">
+              <tr class="trow">
+                <th class="thcell">User</th>
+                <th class="thcell">Level</th>
+                <th class="thcell">Score</th>
+                <th class="thcell">Date</th>
+              </tr>
+            </thead>
+            <tbody class="history_body">
+            </tbody>
+          </table>
+        </div>
+        <table class="actual_user">
+          <thead class="thead">
+            <tr class="trow">
+              <th class="thcell">User</th>
+              <th class="thcell">Level</th>
+              <th class="thcell">Score</th>
+              <th class="thcell">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="trow">
+              <td class="tcell">
+                <a href="#" class="link link_nav stats change" id="user">AAA</a>
+              </td>
+              <td class="tcell stats" id="level">0</td>
+              <td class="tcell stats" id="score">0</td>
+              <td class="tcell stats" id="date">?</td>
+            </tr>
+          </tbody>
+        </table>
       </header>
 
       <main class="main">
