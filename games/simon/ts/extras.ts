@@ -29,7 +29,7 @@ export const showStats = () => {
 export const saveStorage = () => {
   const data = getHistory();
   data.push(store);
-  data.sort((e1, e2) => e2.score - e1.score);
+  data.sort((firstEle, secondEle) => secondEle.score - firstEle.score);
   localStorage.setItem('s1m0n', JSON.stringify(data));
 }
 
@@ -49,24 +49,24 @@ const renderStats = () => {
     trow.className = 'trow';
     trow.innerHTML = `
       <tr class="trow">
-        <td class="tcell stats" id="history-user">0</td>
-        <td class="tcell stats" id="history-level">0</td>
-        <td class="tcell stats" id="history-score">0</td>
-        <td class="tcell stats" id="history-date">0</td>
+        <td class="tcell stats">0</td>
+        <td class="tcell stats">0</td>
+        <td class="tcell stats">0</td>
+        <td class="tcell stats">0</td>
       </tr>
       `;
     fragment.appendChild(trow);
     return fragment;
   } else {
-    data.forEach((user, index) => {
+    data.forEach(user => {
       const trow = document.createElement('tr');
       trow.className = 'trow';
       trow.innerHTML = `
         <tr class="trow">
-          <td class="tcell stats" id="history${index}-user">${user.user}</td>
-          <td class="tcell stats" id="history${index}-level">${user.level}</td>
-          <td class="tcell stats" id="history${index}-score">${user.score}</td>
-          <td class="tcell stats" id="history${index}-date">${user.date}</td>
+          <td class="tcell stats">${user.user}</td>
+          <td class="tcell stats">${user.level}</td>
+          <td class="tcell stats">${user.score}</td>
+          <td class="tcell stats">${user.date}</td>
         </tr>
         `;
       fragment.appendChild(trow);
@@ -88,9 +88,9 @@ export const modal = (e: Event) => {
   const form = document.querySelector('.form_nick') as HTMLFormElement;
   const history = document.querySelector('.history') as HTMLTableElement;
   const historyBody = document.querySelector('.history_body') as HTMLTableElement;
-
-  const element = e.target as HTMLElement;
   const modalContainer = document.querySelector('.change_nick') as HTMLDivElement;
+  const element = e.target as HTMLElement;
+
   e.preventDefault();
 
   if (element.matches('.change')) {
@@ -105,22 +105,24 @@ export const modal = (e: Event) => {
     return modalContainer.classList.toggle('after')
   };
 
-  if (element.matches('.form_btn')) {
-    const nick = document.getElementById('nick') as HTMLInputElement;
-    const data = nick.value;
-    form.classList.toggle('after');
-    return (data.trim().length > 0)
-      ? (store.user = data
-        , showStats()
-        , modalContainer.classList.toggle('after'))
-      : (store.user = 'AAA'
-        , modalContainer.classList.toggle('after'));
-  }
-
   if (element.matches('.btn_history')) {
     const fragment = renderStats();
     historyBody.appendChild(fragment.cloneNode(true));
     history.classList.toggle('after');
     return modalContainer.classList.toggle('after')
-  }
+  };
+
+  if (element.matches('.form_btn')) {
+    const nick = document.getElementById('nick') as HTMLInputElement;
+    const data = nick.value;
+
+    (data.trim().length > 0)
+      ? store.user = data
+      : store.user = 'AAA';
+
+    showStats();
+    form.classList.toggle('after');
+    return modalContainer.classList.toggle('after')
+  };
+
 }

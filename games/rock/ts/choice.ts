@@ -7,7 +7,7 @@ export type Character = {
   name: Choice;
 }
 
-type Defeat = {
+export type Defeat = {
   name: Choice;
   win: string[];
 }

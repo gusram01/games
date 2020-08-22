@@ -1,4 +1,4 @@
-import { character, whosDefeat, Character, Choice } from './choice';
+import { character, whosDefeat, Character, Choice, Defeat } from './choice';
 import { store } from './store';
 
 const indicator = document.getElementById('mini-inidcator') as HTMLDivElement;
@@ -18,21 +18,26 @@ const setChoice = () => {
   const id = 72 * Math.round(Math.random() * 4);
   let deg = 0;
   deg += id + 360 * 2;
+
   const { name } = character.find(ele => ele.id === id) as Character;
+
   return { name, deg };
 }
 
 const countThree = () => {
+  const idCount = window.setTimeout(countThree, 1000);
+
   indicator.style.setProperty('--sec', `${iteratorCount3}`);
   indicator.nextElementSibling!.textContent = `${4 - iteratorCount3}`;
   iteratorCount3++;
-  const idCount = window.setTimeout(countThree, 1000);
+
   if (iteratorCount3 > 4) {
     iteratorCount3 = 1;
     indicator.style.setProperty('--sec', `0`);
     indicator.nextElementSibling!.textContent = 'Play Again ?!';
     return window.clearTimeout(idCount);
   }
+
   return idCount3 = idCount;
 }
 
@@ -58,8 +63,8 @@ const tiedGame = () => {
 }
 
 const isWinner = (playerChoice: Choice, pcChoice: Choice) => {
-  const data = whosDefeat.find(obj => obj.name === playerChoice);
-  (data!.win.includes(pcChoice))
+  const data = whosDefeat.find(obj => obj.name === playerChoice) as Defeat;
+  (data.win.includes(pcChoice))
     ? (store.data.winner = 'You WIN!!'
       , store.data.win++
       , store.data.games++)
@@ -69,10 +74,10 @@ const isWinner = (playerChoice: Choice, pcChoice: Choice) => {
 }
 
 const game = (playerSelection: Choice) => {
-  window.removeEventListener('click', playerHit);
-  statsDashboard.classList.toggle('after');
   const pcHands = document.getElementById('hand_container_pc') as HTMLDivElement;
   const { name, deg } = setChoice();
+
+  window.removeEventListener('click', playerHit);
 
   pcHands.style.setProperty('--spyro', `${deg}`);
   store.data.lastmove = `${playerSelection.toUpperCase()}`;
@@ -81,10 +86,10 @@ const game = (playerSelection: Choice) => {
     ? tiedGame()
     : isWinner(playerSelection, name);
 
+  statsDashboard.classList.toggle('after');
   showStats();
-  return setTimeout(() => {
-    init()
-  }, 500);
+
+  return window.setTimeout(init, 800);
 }
 
 const playerHit = (e: Event) => {
@@ -92,24 +97,21 @@ const playerHit = (e: Event) => {
 
   if (element.matches('.play')) {
     const selection = element.id as Choice;
-    window.clearTimeout(idCount3);
     iteratorCount3 = 1;
+    window.clearTimeout(idCount3);
+    window.clearTimeout(idPlayerDontChoose);
     indicator.style.setProperty('--sec', `0`);
     indicator.nextElementSibling!.textContent = 'Play Again ?!';
-    window.clearTimeout(idPlayerDontChoose);
     game(selection);
   };
 }
 
 const letsPlay = () => {
   const randomChoice = setChoice().name;
-
-  const playerDontChoose = window.setTimeout(() => {
-    game(randomChoice);
-  }, 3000);
+  const playerDontChoose =
+    window.setTimeout(game, 3000, randomChoice);
 
   countThree();
-
   statsDashboard.classList.toggle('after');
   window.addEventListener('click', playerHit);
 

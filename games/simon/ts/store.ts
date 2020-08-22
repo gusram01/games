@@ -5,7 +5,7 @@ export type Store = {
   'date': string;
 }
 
-export const store = {
+export const store: Store = {
 
   'user': '',
   'score': 0,

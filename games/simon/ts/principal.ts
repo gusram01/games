@@ -1,4 +1,4 @@
-import { Choice, choice, Color } from "./choice";
+import { Choice, choice, Color } from './choice';
 import { saveStorage, showStats } from './extras';
 import { store } from "./store";
 
@@ -19,9 +19,11 @@ let counter = 0;
 const finish = () => {
   buttons.removeEventListener('click', playerTurn);
   saveStorage();
-  arrayPlayer = [];
+  // First save the data, then restart variables & then restart game.
   arrayPC = [];
+  arrayPlayer = [];
   letsPlay.textContent = 'Play Again ??!';
+
   init();
 }
 
@@ -61,16 +63,17 @@ const callPlayer = () => {
 const setChoice = () => {
   const randomId = Math.round(Math.random() * 4);
   const randomChoice = choice.find(ele => ele.id === randomId) as Choice;
+
   return counter = arrayPC.unshift(randomChoice.id) - 1;
 }
 
 const animateButton = (): any => {
-  const animateColor = choice.find(ele => ele.id === +arrayPC[counter]);
-  const btn = document.getElementById(`${animateColor?.name}`) as HTMLButtonElement;
+  const animateColor = choice.find(ele => ele.id === +arrayPC[counter]) as Choice;
+  const btn = document.getElementById(`${animateColor.name}`) as HTMLButtonElement;
 
-  letsPlay.textContent = `Level ${arrayPC.length - 1}`;
-  store.level = (arrayPC.length - 1).toString();
   btn.classList.toggle('after');
+  store.level = (arrayPC.length - 1).toString();
+  letsPlay.textContent = `Level ${arrayPC.length - 1}`;
   window.setTimeout(() => { btn.classList.toggle('after') }, 300);
 
   return (counter === 0)
@@ -82,10 +85,8 @@ const animateButton = (): any => {
 const play = () => {
   arrayPlayer = [];
   buttons.style.transform = `rotateZ(${arrayPC.length * 72}deg)`;
-  window.setTimeout(() => {
-    setChoice();
-    animateButton();
-  }, 444);
+  window.setTimeout(setChoice, 300);
+  window.setTimeout(animateButton, 300);
 }
 
 /**
@@ -101,8 +102,8 @@ export const init = () => {
     year: 'numeric'
   });
   store.score = 0;
-  store.user = 'AAA';
   store.level = '0';
+  store.user = 'AAA';
   letsPlay.textContent = "Let's Play";
   letsPlay.addEventListener('click', play, { once: true });
 }
