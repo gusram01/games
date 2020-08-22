@@ -18,7 +18,8 @@ module.exports = {
   mode: 'development',
   entry: {
     home: './games/home/ts/index.ts',
-    rock: './games/rock/ts/rock.ts'
+    rock: './games/rock/ts/rock.ts',
+    simon: './games/simon/ts/simon.ts'
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ],
@@ -66,14 +67,21 @@ module.exports = {
       template: './games/home/index.html',
       filename: './index.html',
       excludeChunks: [
-        'rock'
+        'rock', 'simon'
       ]
     }),
     new HtmlWebpackPlugin({
       template: './games/rock/rock.html',
       filename: './rock/index.html',
       excludeChunks: [
-        'home'
+        'home', 'simon'
+      ]
+    }),
+    new HtmlWebpackPlugin({
+      template: './games/simon/simon.html',
+      filename: './simon/index.html',
+      excludeChunks: [
+        'home', 'rock'
       ]
     }),
     new MiniCssExtractPlugin({ filename: '[name]/bundle.[hash].css' }),
