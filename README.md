@@ -2,7 +2,7 @@
 
 ## Homepage for game section
 
-It is posible to add new features in the future.
+It is posible new features coming soon.
 
 This section complement my portfolio.
 
