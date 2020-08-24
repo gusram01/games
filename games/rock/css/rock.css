@@ -58,8 +58,8 @@
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
-  height: 2.5rem;
-  padding: 1rem 0 8rem 0;
+  height: 205px;
+  padding: 0 0 50px 0;
 }
 
 .nav{
@@ -216,10 +216,27 @@
 
 .welcome,
 .title_table{
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0;
+  backface-visibility: hidden;
 }
 
+.show_move{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  align-items: center;
+  width: 100%;
+}
+
+.show_inner{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 
 .text{
   font-size: 1rem;
@@ -229,15 +246,9 @@
 }
 
 .inner_text{
-  font-size: 1.3rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 300;
   text-align: center;
-}
-
-.social{
-  display: flex;
-  width: 80%;
-  justify-content: space-evenly;
 }
 
 .td,
@@ -292,7 +303,7 @@
 
 .iplayer{
   font-size: 2.3rem;
-  font-weight: 300;
+  color: var(--font1);
   pointer-events: none;
 }
 
@@ -336,7 +347,6 @@
 }
 
 .link{
-  display: flex;
   color: var(--bg2);
   text-decoration: none;
   justify-content: center;

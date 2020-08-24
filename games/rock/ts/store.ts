@@ -7,6 +7,7 @@ export const store = {
     'lose': 0,
     'tied': 0,
     'winner': '',
-    'lastmove': ''
+    'lastplayer': '',
+    'lastpc': ''
   }
 }

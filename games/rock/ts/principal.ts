@@ -65,10 +65,10 @@ const tiedGame = () => {
 const isWinner = (playerChoice: Choice, pcChoice: Choice) => {
   const data = whosDefeat.find(obj => obj.name === playerChoice) as Defeat;
   (data.win.includes(pcChoice))
-    ? (store.data.winner = 'You WIN!!'
+    ? (store.data.winner = 'Player WIN!!'
       , store.data.win++
       , store.data.games++)
-    : (store.data.winner = 'You Lose'
+    : (store.data.winner = 'Player Lose'
       , store.data.lose++
       , store.data.games++)
 }
@@ -80,7 +80,8 @@ const game = (playerSelection: Choice) => {
   window.removeEventListener('click', playerHit);
 
   pcHands.style.setProperty('--spyro', `${deg}`);
-  store.data.lastmove = `${playerSelection.toUpperCase()}`;
+  store.data.lastplayer = `${playerSelection.toLowerCase()}`;
+  store.data.lastpc = `${name.toLowerCase()}`;
 
   (playerSelection === name)
     ? tiedGame()
