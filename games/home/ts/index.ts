@@ -1,5 +1,6 @@
 import '../css/styles.css';
 import '../css/clock.css';
+import '../css/mediaq.css';
 import '../index.html';
 import '../../../assets/home.jpg';
 import { insertMarks, styleMarks, timer } from './clock';
@@ -8,7 +9,7 @@ const cover = document.getElementById('cover') as HTMLDivElement;
 const spanFooter = document.getElementById('leyend_footer') as HTMLSpanElement;
 const actualYear = new Date().getFullYear();
 
-spanFooter.innerHTML = `Gus Ramírez, ${actualYear} <sup>&copy;</sup>`;
+spanFooter.innerHTML = `Gus Ramírez, ${actualYear}®`;
 spanFooter.style.fontWeight = '600';
 
 insertMarks(cover);

@@ -385,6 +385,11 @@
   pointer-events: none;
 }
 
+/**
+ * =================================
+ *            MEDIA-QUERIES
+ * =================================
+ */
 
 @media (orientation: landscape) and (max-height: 414px){
   .main{

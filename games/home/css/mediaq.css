@@ -1,0 +1,61 @@
+
+/**
+ * =================================
+ *            MEDIA-QUERIES
+ * =================================
+ */
+
+ @media (max-height: 449px) and (orientation: landscape){
+  .clock{
+    width: 100%;
+    height: 100%;
+    padding-top: 20vh;
+    align-items: flex-start;
+  }
+  .clock-container{
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (min-width: 768px){
+  .body{
+    font-size: 25px;
+  }
+  .link_wrapper{
+    max-width: 120px;
+  }
+  .games{
+    font-size: 1.8rem;
+  }
+  .clock-container{
+    width: 400px;
+    height: 400px;
+  }
+  .footer{
+    height: 300px;
+    padding: 0 0 90px 0;
+  }
+  .nav{
+    height: 85px;
+  }
+}
+
+@media (max-width: 1024px){
+  .body{
+    font-size: 36px;
+  }
+  .link_wrapper{
+    max-width: 180px;
+  }
+  .games{
+    font-size: 2.5rem;
+  }
+  .footer{
+    height: 400px;
+    padding: 0 0 105px 0;
+  }
+  .nav{
+    height: 100px;
+  }
+}
