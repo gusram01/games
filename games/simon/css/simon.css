@@ -496,7 +496,7 @@ input{
     font-weight: 600;
   }
 }
-@media (min-width: 1366px){
+@media (min-width: 1366px) and (min-height: 1024px){
   .body{
     font-size: 36px;  
   }
