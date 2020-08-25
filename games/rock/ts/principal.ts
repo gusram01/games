@@ -1,6 +1,7 @@
 import { character, whosDefeat, Character, Choice, Defeat } from './choice';
 import { store } from './store';
 
+const sound = document.createElement('audio') as HTMLAudioElement;
 const indicator = document.getElementById('mini-inidcator') as HTMLDivElement;
 const btnPlay = document.getElementById('lets_play') as HTMLButtonElement;
 const statsDashboard = document.getElementById('card-stats') as HTMLDivElement;
@@ -99,6 +100,8 @@ const playerHit = (e: Event) => {
   if (element.matches('.play')) {
     const selection = element.id as Choice;
     iteratorCount3 = 1;
+    sound.src = '/assets/audio/wav4.wav';
+    sound.play();
     window.clearTimeout(idCount3);
     window.clearTimeout(idPlayerDontChoose);
     indicator.style.setProperty('--sec', `0`);
@@ -111,6 +114,9 @@ const letsPlay = () => {
   const randomChoice = setChoice().name;
   const playerDontChoose =
     window.setTimeout(game, 3000, randomChoice);
+
+  sound.src = '/assets/audio/wav4.wav';
+  sound.play();
 
   countThree();
   statsDashboard.classList.toggle('after');

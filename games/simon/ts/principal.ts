@@ -19,13 +19,13 @@ let counter = 0;
 
 const finish = () => {
   buttons.removeEventListener('click', playerTurn);
+
   saveStorage();
-  // First save the data, then restart variables & then restart game.
   arrayPC = [];
   arrayPlayer = [];
-  letsPlay.textContent = 'Play Again ??!';
+  letsPlay.textContent = 'Upps, try again!!';
 
-  init();
+  window.setTimeout(init, 1000);
 }
 
 const compareSelections = (positionCompare: number) => {
@@ -34,7 +34,7 @@ const compareSelections = (positionCompare: number) => {
     ? finish()
     : (arrayPC.length > arrayPlayer.length)
       ? callPlayer()
-      : window.setTimeout(play, 500);
+      : window.setTimeout(play, 600);
 }
 
 
@@ -102,6 +102,14 @@ const play = () => {
  */
 
 export const init = () => {
+  const form = document.querySelector('.form_nick') as HTMLFormElement;
+  const historyBody = document.querySelector('.history_body') as HTMLTableElement;
+  const modalContainer = document.querySelector('.change_nick') as HTMLDivElement;
+
+  historyBody.innerHTML = '';
+  form.classList.toggle('after');
+  modalContainer.classList.toggle('after')
+
   store.date = new Date().toLocaleString('en-US', {
     month: 'short',
     day: 'numeric',

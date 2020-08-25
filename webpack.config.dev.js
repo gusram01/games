@@ -32,7 +32,6 @@ module.exports = {
   devServer: {
     open: true,
     openPage: 'games',
-    publicPath: '/games'
   },
   optimization: {
     namedModules: true,
@@ -130,6 +129,22 @@ module.exports = {
           }
         ]
       },
+      {
+        test: /\.(mp3|wav|ogg|acc)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: '/assets/',
+              publicPath: '/assets/',
+              emitFile: true,
+              esModule: false
+            }
+          }
+        ]
+      },
+
     ]
   }
 };

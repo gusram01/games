@@ -86,6 +86,7 @@ const renderStats = () => {
 
 export const modal = (e: Event) => {
   const form = document.querySelector('.form_nick') as HTMLFormElement;
+  const clear = document.querySelector('.form_clear') as HTMLFormElement;
   const history = document.querySelector('.history') as HTMLTableElement;
   const historyBody = document.querySelector('.history_body') as HTMLTableElement;
   const modalContainer = document.querySelector('.change_nick') as HTMLDivElement;
@@ -102,6 +103,7 @@ export const modal = (e: Event) => {
     historyBody.innerHTML = '';
     form.classList.remove('after');
     history.classList.remove('after');
+    clear.classList.remove('after');
     return modalContainer.classList.toggle('after')
   };
 
@@ -116,8 +118,34 @@ export const modal = (e: Event) => {
     historyBody.innerHTML = '';
     form.classList.remove('after');
     history.classList.remove('after');
+    clear.classList.remove('after');
     return modalContainer.classList.toggle('after')
   }
+
+  if (element.matches('.clear')) {
+    historyBody.innerHTML = '';
+    form.classList.remove('after');
+    history.classList.remove('after');
+    clear.classList.toggle('after');
+  }
+
+  if (element.matches('.dontclear')) {
+    historyBody.innerHTML = '';
+    form.classList.remove('after');
+    history.classList.remove('after');
+    clear.classList.remove('after');
+    return modalContainer.classList.toggle('after')
+  }
+
+  if (element.matches('.yesclear')) {
+    localStorage.removeItem('s1m0n');
+    historyBody.innerHTML = '';
+    form.classList.remove('after');
+    history.classList.remove('after');
+    clear.classList.remove('after');
+    return modalContainer.classList.toggle('after')
+  }
+
 
   if (element.matches('.form_btn')) {
     const nick = document.getElementById('nick') as HTMLInputElement;

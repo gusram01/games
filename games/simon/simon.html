@@ -23,22 +23,33 @@
           </h1>
         </div>
         <div class="change_nick">
+          <form class="form_clear">
+            <a href="#top" class="link modal_close">&times;</a>
+            <div class="form-clear_item">
+              <p class="pclear">
+                Please confirm that you really want to clear history...
+              </p>
+              <h3 class="hclear">Clear History</h3>
+              <button type="button" class="btn btnclear-one yesclear">Yes</button>
+              <button type="button" class="btn btnclear-snd dontclear">No</button>
+            </div>
+          </form>
           <form class="form_nick">
             <a href="#top" class="link modal_close">&times;</a>
-
             <div class="form_item">
-              <label for="nick">Username</label>
-              <input type="text nick" id="nick">
-            </div>
-            <div class="form_item">
+              <label for="nick">Choose your Nick!!</label>
+              <input type="text" id="nick">
               <button class="btn form_btn">Change username</button>
             </div>
           </form>
           <table class="history">
             <thead class="thead">
               <tr class="trow">
-                <th class="thcell wrapper_close" colspan="4">
-                  <a href="#top" class="link modal_close">&times;</a>
+                <th class="wrapper_close" colspan="1">
+                  <a href="#" class="link modal_close">&times;</a>
+                </th>
+                <th class="wrapper_close" colspan="3">
+                  <a href="#" class="link clear">clear history</a>
                 </th>
               </tr>
               <tr class="trow">

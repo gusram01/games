@@ -1,11 +1,11 @@
 import '../css/simon.css';
 import '../simon.html';
 import '../../../assets/checkers.jpg';
-import '../../../assets/wav0.wav';
-import '../../../assets/wav1.wav';
-import '../../../assets/wav2.wav';
-import '../../../assets/wav3.wav';
-import '../../../assets/wav4.wav';
+import '../../../assets/audio/wav0.wav';
+import '../../../assets/audio/wav1.wav';
+import '../../../assets/audio/wav2.wav';
+import '../../../assets/audio/wav3.wav';
+import '../../../assets/audio/wav4.wav';
 import { init } from './principal';
 import { modal } from './extras';
 
