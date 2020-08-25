@@ -1,6 +1,7 @@
 import '../css/simon.css';
 import '../simon.html';
 import '../../../assets/checkers.jpg';
+import '../../../assets/wav1.wav';
 import { init } from './principal';
 import { modal } from './extras';
 

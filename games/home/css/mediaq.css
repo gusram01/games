@@ -41,7 +41,7 @@
   }
 }
 
-@media (max-width: 1024px){
+@media (min-width: 1024px){
   .body{
     font-size: 36px;
   }

@@ -112,6 +112,13 @@ export const modal = (e: Event) => {
     return modalContainer.classList.toggle('after')
   };
 
+  if (element.matches('.modal_close')) {
+    historyBody.innerHTML = '';
+    form.classList.remove('after');
+    history.classList.remove('after');
+    return modalContainer.classList.toggle('after')
+  }
+
   if (element.matches('.form_btn')) {
     const nick = document.getElementById('nick') as HTMLInputElement;
     const data = nick.value;

@@ -130,13 +130,14 @@ h1{
   justify-content: space-evenly;
   top: 0;
   left: 0;
+  bottom: 0;
   width: 100%;
-  height: 100%;
   opacity: 0;
   transform: scale(0, 0);
   background: var(--bg1-t1);
   transition: transform 200ms ease, opacity 200ms ease;
   z-index: 500;
+  overflow-y: auto;
 }
 
 .change_nick.after{
@@ -157,12 +158,14 @@ h1{
 }
 
 .history{
+  max-height: 100%;
   width: 96%;
   margin: 5vh auto;
   text-align: center;
   background: var(--bg3);
   color: var(--font1);
   display: none;
+
 }
 
 .history.after{
@@ -186,8 +189,8 @@ h1{
 .wrapper_board{
   position: relative;
   display: flex;
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
 }
 
 .button_container{
@@ -342,6 +345,14 @@ h1{
   color: var(--font5);
 }
 
+.wrapper_close{
+  text-align: left;
+}
+.modal_close{
+  font-size: 2.2rem;
+  margin-left: 15px;
+}
+
 .color{
   position: absolute;
   width: 50%;
@@ -351,6 +362,7 @@ h1{
   top: 25%;
   left: 25%;
   border: none;
+  overflow: hidden;
   transition: opacity 150ms ease;
 }
 
@@ -360,24 +372,23 @@ h1{
   opacity: 0.9;
 }
 
-
 .blue{
   background: radial-gradient(ellipse at 20% 20%, #bbf, blue 50%);
-  transform: translateY(57%) translateX(-40%);
+  transform: translateY(70%) translateX(-45%);
 }
 .red{
   background: radial-gradient(ellipse at 20% 20%, #fbb, red 50%);
-  transform: translateY(57%) translateX(40%);
+  transform: translateY(70%) translateX(45%);
 }
 .green{
   background: radial-gradient(ellipse at 20% 20%, #bfb, green 50%);
-  transform: translateY(-17%) translateX(60%);
+  transform: translateY(-17%) translateX(70%);
 }
 .yellow{
   background: radial-gradient(ellipse at 20% 20%, #ffb, yellow 50%);
-  transform: translateY(-17%) translateX(-60%);
+  transform: translateY(-17%) translateX(-70%);
 }
 .white{
   background: radial-gradient(ellipse at 20% 20%, #fff, #999 50%);
-  transform: translateY(-57%) translateX(0);
+  transform: translateY(-70%) translateX(0);
 }
