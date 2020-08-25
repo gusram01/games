@@ -111,14 +111,24 @@
  * =================================
  */
 
+.btn_header-container{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
 h1{
   font-size: 1.8rem;
-  margin: 0 15px 0 110px;
   padding: 0.5rem 0;
+  margin: 0 auto;
 }
 
 .body_simon{
   max-width: 1368px;
+  margin: 0 auto;
   background: no-repeat fixed 
     url("../../../assets/checkers.jpg"), var(--bg1);
   background-position: 50% 30%;
@@ -160,12 +170,12 @@ h1{
 .history{
   max-height: 100%;
   width: 96%;
+  max-width: 1368px;
   margin: 5vh auto;
   text-align: center;
   background: var(--bg3);
   color: var(--font1);
   display: none;
-
 }
 
 .history.after{
@@ -248,9 +258,8 @@ h1{
 }
 
 .btn_history{
-  position: fixed;
   max-width: 70px;
-  margin: 0;
+  margin: 0 auto;
   padding: 3px;
   top: 0;
   left: 0;

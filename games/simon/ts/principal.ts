@@ -2,6 +2,7 @@ import { Choice, choice, Color } from './choice';
 import { saveStorage, showStats } from './extras';
 import { store } from "./store";
 
+const sound = document.createElement('audio') as HTMLAudioElement;
 const letsPlay = document.getElementById('lets_play') as HTMLButtonElement;
 const buttons = document.querySelector('.button_container') as HTMLDivElement;
 let arrayPC: number[] = [];
@@ -33,7 +34,7 @@ const compareSelections = (positionCompare: number) => {
     ? finish()
     : (arrayPC.length > arrayPlayer.length)
       ? callPlayer()
-      : play();
+      : window.setTimeout(play, 500);
 }
 
 
@@ -50,6 +51,8 @@ const playerTurn = (e: Event) => {
 
   const actualPosition = arrayPlayer.unshift(playerSelect.id);
 
+  sound.src = `/assets/audio/${playerSelect.sound}`;
+  sound.play();
   store.score += 3;
   showStats();
   compareSelections(actualPosition);
@@ -70,6 +73,9 @@ const setChoice = () => {
 const animateButton = (): any => {
   const animateColor = choice.find(ele => ele.id === +arrayPC[counter]) as Choice;
   const btn = document.getElementById(`${animateColor.name}`) as HTMLButtonElement;
+
+  sound.src = `/assets/audio/${animateColor.sound}`;
+  sound.play();
 
   btn.classList.toggle('after');
   store.level = (arrayPC.length - 1).toString();
