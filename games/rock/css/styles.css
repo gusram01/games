@@ -27,6 +27,10 @@
  *              GENERAL
  * =================================
  */
+html{
+  font-size: 20px;
+}
+
 .body,
 .nav_container,
 .welcome,
@@ -36,7 +40,6 @@
   padding: 0;
 }
 .body{
-  font-size: 16px;
   background: var(--bg4-t1);
   font-family: 'Montserrat Alternates', sans-serif;
 }
@@ -110,7 +113,7 @@
  
 }
 .welcome{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-align: center;
 }
 .rock-paper_pc{
@@ -134,7 +137,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  font-size: 4rem;
+  font-size: 3rem;
   color: var(--bg2);
   transform-origin: center;
   backface-visibility: hidden;
@@ -301,16 +304,16 @@
   user-select: none;
 }
 .winner{
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 .text{
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 200;
   text-align: center;
   margin: 0 auto;
 }
 .inner_text{
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 300;
   text-align: center;
 }
@@ -349,7 +352,7 @@
 .btn_play{
   width: 100%;
   height: 100%;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   font-weight: 700;
   border-radius: 50%;
 }
@@ -380,7 +383,7 @@
   color: var(--bg2);
 }
 .iplayer{
-  font-size: 2.3rem;
+  font-size: 2rem;
   color: var(--font1);
   pointer-events: none;
 }
@@ -391,7 +394,10 @@
  * =================================
  */
 
-@media (orientation: landscape) and (max-height: 414px){
+@media (orientation: landscape) and (max-height: 450px){
+  html{
+    font-size: 15px;
+  }
   .main{
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
@@ -407,9 +413,6 @@
   .dashboard{
     grid-area: dashboard;
   }
-  .welcome{
-    font-size: 1rem;
-  }
   .rock-paper_pc{
     height: 80px;
   }
@@ -420,35 +423,19 @@
     margin: auto 0; 
   }
 }
-
-@media (min-width: 768px){
-  .body,
-  .title_table,
-  .winner{
-    font-size: 1.35rem;
-  }
-  .welcome{
-    font-size: 1.8rem;
-  }
-  .iplayer{
-    font-size: 3rem;
+ 
+@media (min-height: 768px) and (orientation: landscape){
+  html{
+    font-size: 24px;
   }
   .front:hover::after{
     width: 250px;
     height: 250px;
   }
 }
-@media (min-width: 768px) and (min-height: 800px){
-  .body,
-  .title_table,
-  .winner{
-    font-size: 1.6rem;
-  }
-  .welcome{
-    font-size: 2.5rem;
-  }
-  .iplayer{
-    font-size: 4rem;
+@media (min-width: 768px) and (orientation: portrait){
+  html{
+    font-size: 28px;
   }
   .central{
     min-height: 200px;
@@ -472,17 +459,10 @@
     height: 280px;
   }
 }
-@media (min-width: 1024px) and (min-height: 900px){
-  .body,
-  .title_table,
-  .winner{
-    font-size: 2.2rem;
-  }
-  .welcome{
-    font-size: 3rem;
-  }
-  .hand_pc{
-    font-size: 7rem;
+
+@media (min-width: 1024px) and (orientation: portrait){
+  html{
+    font-size: 38px;
   }
   .central{
     min-height: 300px;
@@ -497,17 +477,35 @@
   .back{
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
-  .btn_play{
-    font-size: 2.7rem;
+  .nav{
+    height: 100px;
   }
-  .text{
-    font-size: 2rem;
+  .footer{
+    height: 290px;
+    padding: 0 0 150px 0;
   }
-  .inner_text{
-    font-size: 2.5rem;
+  .front:hover::after{
+    width: 290px;
+    height: 290px;
   }
-  .iplayer{
-    font-size: 4rem;
+}
+@media (min-height: 1024px) and (orientation: landscape){
+  html{
+    font-size: 32px;
+  }
+  
+  .central{
+    min-height: 250px;
+  }
+  .wrapper_lets-play{
+    width: 200px;
+    height: 200px;
+  }
+  .stats{
+    min-height: 350px;
+  }
+  .back{
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
   .nav{
     height: 100px;
@@ -517,7 +515,7 @@
     padding: 0 0 150px 0;
   }
   .front:hover::after{
-    width: 320px;
-    height: 320px;
+    width: 290px;
+    height: 290px;
   }
 }

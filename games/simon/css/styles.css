@@ -27,11 +27,12 @@
  *              GENERAL
  * =================================
  */
-
+html{
+  font-size: 16px;
+}
 .body{
   margin: 0;
   padding: 0;
-  font-size: 16px;
   background: var(--bg1);
   font-family: 'Montserrat Alternates', sans-serif;
 }
@@ -362,7 +363,7 @@ input{
   justify-content: space-evenly;
   background: var(--bg2);
   color: var(--font3);
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 .btn_history{
   max-width: 70px;
@@ -431,7 +432,10 @@ input{
  * =================================
  */
 
-@media (orientation: landscape) and (max-height: 414px){
+@media (orientation: landscape) and (max-height: 450px){
+  html{
+    font-size: 12px;
+  }
   .board{
     justify-content: flex-end;
     padding-right: 30%;
@@ -444,13 +448,12 @@ input{
     top: 25%;
     left: -140%;
     padding: 15px;
-    font-size: 1.5rem;
   }
 }
 
 @media (min-width: 768px) and (orientation: portrait){
-  .body{
-    font-size: 26px;  
+  html{
+    font-size: 24px;  
   }
   .wrapper_board{
     width: 280px;
@@ -463,22 +466,34 @@ input{
     height: 350px;
   }
   .nav{
-    height: 80px;
+    height: 90px;
   }
-  .link_nav,
-  .link_nav:link,
-  .link_nav:visited{
-    font-size: 2rem;
-    font-weight: 500;
+}
+@media (min-height: 768px) and (orientation: landscape){
+  html{
+    font-size: 24px;  
+  }
+  .wrapper_board{
+    width: 250px;
+    height: 250px;
+  }
+  .btn_history{
+    max-width: 170px;
+  }
+  .footer{
+    height: 350px;
+  }
+  .nav{
+    height: 90px;
   }
 }
 @media (min-width: 1024px) and (orientation: portrait){
-  .body{
-    font-size: 36px;  
+  html{
+    font-size: 30px;  
   }
   .wrapper_board{
-    width: 400px;
-    height: 400px;
+    width: 380px;
+    height: 380px;
   }
   .btn_history{
     max-width: 230px;
@@ -488,21 +503,15 @@ input{
   }
   .nav{
     height: 110px;
-  }
-  .link_nav,
-  .link_nav:link,
-  .link_nav:visited{
-    font-size: 2.5rem;
-    font-weight: 600;
   }
 }
-@media (min-width: 1366px) and (min-height: 1024px){
-  .body{
-    font-size: 36px;  
+@media (min-height: 1024px) and (orientation: landscape){
+  html{
+    font-size: 30px;  
   }
   .wrapper_board{
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
   }
   .btn_history{
     max-width: 230px;
@@ -512,11 +521,5 @@ input{
   }
   .nav{
     height: 110px;
-  }
-  .link_nav,
-  .link_nav:link,
-  .link_nav:visited{
-    font-size: 2.5rem;
-    font-weight: 600;
   }
 }

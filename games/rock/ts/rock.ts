@@ -1,4 +1,4 @@
-import '../css/rock.css';
+import '../css/styles.css';
 import '../rock.html';
 import '../../../assets/rock-img.png';
 import { init } from './principal';

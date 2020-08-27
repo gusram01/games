@@ -100,7 +100,7 @@ const playerHit = (e: Event) => {
   if (element.matches('.play')) {
     const selection = element.id as Choice;
     iteratorCount3 = 1;
-    sound.src = '/assets/audio/wav4.wav';
+    sound.src = '/assets/audio/wav4.mp3';
     sound.play();
     window.clearTimeout(idCount3);
     window.clearTimeout(idPlayerDontChoose);
@@ -115,7 +115,7 @@ const letsPlay = () => {
   const playerDontChoose =
     window.setTimeout(game, 3000, randomChoice);
 
-  sound.src = '/assets/audio/wav4.wav';
+  sound.src = '/assets/audio/wav4.mp3';
   sound.play();
 
   countThree();
