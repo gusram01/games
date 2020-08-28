@@ -1,5 +1,4 @@
 import '../css/styles.css';
-import '../simon.html';
 import '../../../assets/checkers.jpg';
 import '../../../assets/audio/wav0.mp3';
 import '../../../assets/audio/wav1.mp3';

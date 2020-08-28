@@ -71,7 +71,6 @@ html{
 
 .nav{
   margin: 0;
-  position: -webkit-sticky;
   position: sticky;
   top: 93%;
   height: 65px;

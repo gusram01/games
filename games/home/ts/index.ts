@@ -1,7 +1,6 @@
 import '../css/styles.css';
 import '../css/clock.css';
 import '../css/mediaq.css';
-import '../index.html';
 import '../../../assets/home.jpg';
 import { insertMarks, styleMarks, timer } from './clock';
 

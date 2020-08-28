@@ -105,15 +105,6 @@ module.exports = {
         ]
 
       },
-
-      {
-        test: /\.html$/,
-        loader: 'html-loader',
-        options: {
-          minimize: false,
-        },
-      },
-
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
