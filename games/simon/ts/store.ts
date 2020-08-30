@@ -7,7 +7,7 @@ export type Store = {
 
 export const store: Store = {
 
-  'user': '',
+  'user': 'AAA',
   'score': 0,
   'level': '',
   'date': '',

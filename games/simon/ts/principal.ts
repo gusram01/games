@@ -2,7 +2,7 @@ import { Choice, choice, Color } from './choice';
 import { saveStorage, showStats } from './extras';
 import { store } from "./store";
 
-const sound = document.createElement('audio') as HTMLAudioElement;
+const sound = document.querySelector('.audio') as HTMLAudioElement;
 const letsPlay = document.getElementById('lets_play') as HTMLButtonElement;
 const buttons = document.querySelector('.button_container') as HTMLDivElement;
 let arrayPC: number[] = [];
@@ -117,7 +117,6 @@ export const init = () => {
   });
   store.score = 0;
   store.level = '0';
-  store.user = 'AAA';
   letsPlay.textContent = "Let's Play";
   letsPlay.addEventListener('click', play, { once: true });
 }

@@ -1,7 +1,7 @@
 import { character, whosDefeat, Character, Choice, Defeat } from './choice';
 import { store } from './store';
 
-const sound = document.createElement('audio') as HTMLAudioElement;
+const sound = document.querySelector('.audio') as HTMLAudioElement;
 const indicator = document.getElementById('mini-inidcator') as HTMLDivElement;
 const btnPlay = document.getElementById('lets_play') as HTMLButtonElement;
 const statsDashboard = document.getElementById('card-stats') as HTMLDivElement;
@@ -26,7 +26,6 @@ const setChoice = () => {
 }
 
 const countThree = () => {
-  const idCount = window.setTimeout(countThree, 1000);
 
   indicator.style.setProperty('--sec', `${iteratorCount3}`);
   indicator.nextElementSibling!.textContent = `${4 - iteratorCount3}`;
@@ -36,10 +35,11 @@ const countThree = () => {
     iteratorCount3 = 1;
     indicator.style.setProperty('--sec', `0`);
     indicator.nextElementSibling!.textContent = 'Play Again ?!';
-    return window.clearTimeout(idCount);
+    return window.clearTimeout(idCount3);
+  } else {
+    return idCount3 = window.setTimeout(countThree, 1000);
   }
 
-  return idCount3 = idCount;
 }
 
 const showStats = () => {
@@ -112,8 +112,6 @@ const playerHit = (e: Event) => {
 
 const letsPlay = () => {
   const randomChoice = setChoice().name;
-  const playerDontChoose =
-    window.setTimeout(game, 3000, randomChoice);
 
   sound.src = '/assets/audio/wav4.mp3';
   sound.play();
@@ -122,7 +120,8 @@ const letsPlay = () => {
   statsDashboard.classList.toggle('after');
   window.addEventListener('click', playerHit);
 
-  return idPlayerDontChoose = playerDontChoose;
+  return idPlayerDontChoose =
+    window.setTimeout(game, 3000, randomChoice);
 };
 
 /**
