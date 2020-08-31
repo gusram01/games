@@ -151,7 +151,7 @@ export const modal = (e: Event) => {
     const nick = document.getElementById('nick') as HTMLInputElement;
     const data = nick.value;
 
-    (data.trim().length > 0)
+    (data.trim().length > 0 && data.trim().length < 15)
       ? store.user = data
       : store.user = 'AAA';
 
