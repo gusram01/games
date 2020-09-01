@@ -1,6 +1,10 @@
 import { Store, store } from './store';
 
-
+const form = document.querySelector('.form_nick') as HTMLFormElement;
+const clear = document.querySelector('.form_clear') as HTMLFormElement;
+const history = document.querySelector('.history') as HTMLTableElement;
+const historyBody = document.querySelector('.history_body') as HTMLTableElement;
+const modalContainer = document.querySelector('.change_nick') as HTMLDivElement;
 
 /**
  * ==========================================
@@ -17,20 +21,11 @@ const getHistory = () => {
   return users;
 }
 
-
-export const showStats = () => {
-  Object.keys(store).forEach(key => {
-    const element = document.getElementById(key) as HTMLElement;
-    //@ts-expect-error
-    element.textContent = store[key].toString();
-  });
-}
-
-export const saveStorage = () => {
-  const data = getHistory();
-  data.push(store);
-  data.sort((firstEle, secondEle) => secondEle.score - firstEle.score);
-  localStorage.setItem('s1m0n', JSON.stringify(data));
+const hideElements = () => {
+  historyBody.innerHTML = '';
+  form.classList.remove('after');
+  history.classList.remove('after');
+  clear.classList.remove('after');
 }
 
 
@@ -77,19 +72,36 @@ const renderStats = () => {
 }
 
 
+
+/**
+ * ==========================================
+ *               Export functions
+ * ==========================================
+ */
+
+export const showStats = () => {
+  Object.keys(store).forEach(key => {
+    const element = document.getElementById(key) as HTMLElement;
+    //@ts-expect-error
+    element.textContent = store[key].toString();
+  });
+}
+
+export const saveStorage = () => {
+  const data = getHistory();
+  data.push(store);
+  data.sort((firstEle, secondEle) => secondEle.score - firstEle.score);
+  localStorage.setItem('s1m0n', JSON.stringify(data));
+}
+
+
 /**
  * ==========================================
  *                General Modal
  * ==========================================
  */
 
-
 export const modal = (e: Event) => {
-  const form = document.querySelector('.form_nick') as HTMLFormElement;
-  const clear = document.querySelector('.form_clear') as HTMLFormElement;
-  const history = document.querySelector('.history') as HTMLTableElement;
-  const historyBody = document.querySelector('.history_body') as HTMLTableElement;
-  const modalContainer = document.querySelector('.change_nick') as HTMLDivElement;
   const element = e.target as HTMLElement;
 
   e.preventDefault();
@@ -100,10 +112,7 @@ export const modal = (e: Event) => {
   };
 
   if (element.matches('.change_nick')) {
-    historyBody.innerHTML = '';
-    form.classList.remove('after');
-    history.classList.remove('after');
-    clear.classList.remove('after');
+    hideElements();
     return modalContainer.classList.toggle('after')
   };
 
@@ -115,37 +124,25 @@ export const modal = (e: Event) => {
   };
 
   if (element.matches('.modal_close')) {
-    historyBody.innerHTML = '';
-    form.classList.remove('after');
-    history.classList.remove('after');
-    clear.classList.remove('after');
+    hideElements();
     return modalContainer.classList.toggle('after')
   }
 
   if (element.matches('.clear')) {
-    historyBody.innerHTML = '';
-    form.classList.remove('after');
-    history.classList.remove('after');
-    clear.classList.toggle('after');
+    hideElements();
+    return clear.classList.toggle('after');
   }
 
   if (element.matches('.dontclear')) {
-    historyBody.innerHTML = '';
-    form.classList.remove('after');
-    history.classList.remove('after');
-    clear.classList.remove('after');
+    hideElements();
     return modalContainer.classList.toggle('after')
   }
 
   if (element.matches('.yesclear')) {
     localStorage.removeItem('s1m0n');
-    historyBody.innerHTML = '';
-    form.classList.remove('after');
-    history.classList.remove('after');
-    clear.classList.remove('after');
+    hideElements();
     return modalContainer.classList.toggle('after')
   }
-
 
   if (element.matches('.form_btn')) {
     const nick = document.getElementById('nick') as HTMLInputElement;
