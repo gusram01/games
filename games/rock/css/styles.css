@@ -65,7 +65,7 @@ html{
   align-items: center;
   justify-content: space-around;
   min-height: 100vh;
-  background: no-repeat fixed url('../../../assets/space-invaders.jpg') ,var(--bg4); 
+  background: no-repeat fixed url('/assets/img/space-invaders.jpg') ,var(--bg4); 
   background-position: 30% 50%;
   background-size: cover;
 }
@@ -262,7 +262,7 @@ html{
   margin: 0 auto;
   width: 200px;
   height: 200px;
-  background: no-repeat url('../../../assets/rock-img.png'), var(--bg2);
+  background: no-repeat url('/assets/img/rock-img.png'), var(--bg2);
   background-size: contain;
   background-position: center;
   background-attachment: scroll;

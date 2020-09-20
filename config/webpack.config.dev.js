@@ -1,18 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-
-function recursiveIssuer(m) {
-  if (m.issuer) {
-    return recursiveIssuer(m.issuer);
-  } else if (m.name) {
-    return m.name;
-  } else {
-    return false;
-  }
-}
 
 module.exports = {
   mode: 'development',
@@ -26,12 +14,11 @@ module.exports = {
   },
   output: {
     filename: '[name]/bundle.[hash].js',
-    path: path.resolve(__dirname, 'public', 'games'),
-    publicPath: '/games',
+    path: path.resolve(__dirname, '..', 'dist'),
+    publicPath: '/',
   },
   devServer: {
     open: true,
-    openPage: 'games',
   },
   optimization: {
     namedModules: true,
@@ -41,49 +28,24 @@ module.exports = {
     removeAvailableModules: false,
     concatenateModules: true,
     checkWasmTypes: true,
-    splitChunks: {
-      cacheGroups: {
-        fooStyles: {
-          name: 'home',
-          test: (m, c, entry = 'home') =>
-            m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
-          chunks: 'all',
-          enforce: true,
-        },
-        barStyles: {
-          name: 'rock',
-          test: (m, c, entry = 'rock') =>
-            m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
-          chunks: 'all',
-          enforce: true,
-        },
-      },
-    },
   },
   plugins: [
-    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './games/home/index.html',
       filename: './index.html',
-      excludeChunks: [
-        'rock', 'simon'
-      ]
+      chunks: [ 'home' ]
     }),
     new HtmlWebpackPlugin({
       template: './games/rock/rock.html',
       filename: './rock/index.html',
-      excludeChunks: [
-        'home', 'simon'
-      ]
+      chunks: [ 'rock' ]
     }),
     new HtmlWebpackPlugin({
       template: './games/simon/simon.html',
       filename: './simon/index.html',
-      excludeChunks: [
-        'home', 'rock'
-      ]
+      chunks: [ 'simon' ]
     }),
-    new MiniCssExtractPlugin({ filename: '[name]/bundle.[hash].css' }),
   ],
   module: {
     rules: [
@@ -92,19 +54,18 @@ module.exports = {
         use: 'ts-loader',
         exclude: [
           /node_modules/,
-          / backend /,
-          /public/
+          /public/,
+          /tsc/,
+          /dist/,
+          /docs/
         ]
       },
 
       {
         test: /\.css$/i,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-        ]
-
+        use: [ 'style-loader', 'css-loader' ],
       },
+
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
@@ -112,30 +73,28 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: '/assets/',
-              publicPath: '/assets/',
-              emitFile: true,
-              esModule: false
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(mp3|wav|ogg|acc)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: '/assets/',
-              publicPath: '/assets/',
-              emitFile: true,
-              esModule: false
+              outputPath: '/assets/img',
+              publicPath: '/assets/img',
+              emitFile: true
             }
           }
         ]
       },
 
+      {
+        test: /\.(wav|mp3|ogg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: '/assets/audio',
+              publicPath: '/assets/audio',
+              emitFile: true
+            }
+          }
+        ]
+      },
     ]
   }
 };

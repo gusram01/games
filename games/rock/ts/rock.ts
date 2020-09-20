@@ -1,5 +1,6 @@
 import '../css/styles.css';
 import '../../../assets/rock-img.png';
+import '../../../assets/space-invaders.jpg';
 import '../../../assets/audio/wav4.mp3';
 import { init } from './principal';
 

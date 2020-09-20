@@ -1,4 +1,8 @@
 node_modules/
-public/
 docs/
 dist/
+public/
+tsc/
+.firebase/
+.firebasesrc
+firebase.json
